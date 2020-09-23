@@ -1,6 +1,6 @@
 package life.majiang.community.dto;
 
-public class Githubuser {
+public class GithubUser {
     private String name;
     private Long id;
     private String bio;
@@ -27,5 +27,14 @@ public class Githubuser {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    @Override
+    public String toString() {
+        return "Githubuser{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", bio='" + bio + '\'' +
+                '}';
     }
 }

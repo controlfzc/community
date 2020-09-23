@@ -2,7 +2,7 @@ package life.majiang.community.provider;
 
 import com.alibaba.fastjson.JSON;
 import life.majiang.community.dto.AccessTokenDTO;
-import life.majiang.community.dto.Githubuser;
+import life.majiang.community.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +30,7 @@ public class GitHubProvider {
         return null;
     }
 
-    public Githubuser gitUser(String accessToken) {
+    public GithubUser gitUser(String accessToken) {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -38,7 +38,7 @@ public class GitHubProvider {
                 .build();
         try (Response response = client.newCall(request).execute()) {
             String string = response.body().string();
-            Githubuser githubuser = JSON.parseObject(string, Githubuser.class);
+            GithubUser githubuser = JSON.parseObject(string, GithubUser.class);
             return githubuser;
         } catch (IOException e) {
         }
